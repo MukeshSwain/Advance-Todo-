@@ -19,12 +19,12 @@ function Todopage() {
         withCredentials: true,
         headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("token")}` // ✅ Send JWT token if needed
+        // "Authorization": `Bearer ${localStorage.getItem("token")}` //  Send JWT token if needed
       }
       });
-      console.log("HEYYYYY1")
+      
       if (res.data.success) {
-        console.log("HEYYYYY2")
+        
         dispatch(setTask(res.data.tasks));
       }
     } catch (error) {
