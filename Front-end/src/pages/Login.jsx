@@ -31,6 +31,10 @@ function Login() {
       }
       const res = await axios.post(`${autEndPoint}/login`, input, {
         withCredentials: true,
+        headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}` // ✅ Send JWT token if needed
+      }
       });
 
       if (res.data.success) {
