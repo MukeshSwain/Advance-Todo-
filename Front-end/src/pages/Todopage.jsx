@@ -18,7 +18,9 @@ function Todopage() {
       const res = await axios.get(`${taskEndPoint}/get`, {
         withCredentials: true,
       });
+      console.log("HEYYYYY1")
       if (res.data.success) {
+        console.log("HEYYYYY2")
         dispatch(setTask(res.data.tasks));
       }
     } catch (error) {
