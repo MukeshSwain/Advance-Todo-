@@ -15,7 +15,7 @@ import "./util/nodeCron.js"
 const port = process.env.PORT || 3000;
 const endPoint =
   process.env.NODE_ENV === "production"
-    ? "advance-todo-27oihwb31-mukesh-swains-projects.vercel.app"
+    ? "https://advance-todo-27oihwb31-mukesh-swains-projects.vercel.app"
     : "http://localhost:5173";
 
 const app = express();
