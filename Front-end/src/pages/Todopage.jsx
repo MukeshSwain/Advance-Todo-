@@ -17,6 +17,10 @@ function Todopage() {
     try {
       const res = await axios.get(`${taskEndPoint}/get`, {
         withCredentials: true,
+        headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}` // ✅ Send JWT token if needed
+      }
       });
       console.log("HEYYYYY1")
       if (res.data.success) {
