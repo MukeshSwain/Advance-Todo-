@@ -70,7 +70,7 @@ export const loginUser = async (req, res) => {
 
     user = await User.findById(user._id).select("-password");
 
-    res.status(200).json({ message: "Login successful", success: true, user });
+    res.status(200).json({ message: "Login successful", success: true, user,token });
   } catch (error) {
     log("Internal server error ", error.message);
     return res
