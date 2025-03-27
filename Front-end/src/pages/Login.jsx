@@ -38,6 +38,7 @@ function Login() {
       });
 
       if (res.data.success) {
+        console.log(res);
         dispatch(setUser(res.data.user));
         navigate("/todo");
         toast.success(res.data.message);
