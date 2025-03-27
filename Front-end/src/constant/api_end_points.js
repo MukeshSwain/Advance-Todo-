@@ -1,2 +1,2 @@
-export const autEndPoint =import.meta.env.MODE === "development"? "http://localhost:5001/api/user":"/api/user";
-export const taskEndPoint =import.meta.env.MODE === "development"? "http://localhost:5001/api/task":"/api/task";
+export const autEndPoint = "http://localhost:5001/api/user"
+export const taskEndPoint = "http://localhost:5001/api/task"
