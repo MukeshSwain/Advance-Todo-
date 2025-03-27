@@ -102,7 +102,7 @@ fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-40"
             <Button type="submit" className={`cursor-pointer`}>
               {loading ? (
                 <span className="flex items-center gap-2">
-                  <Loader2 className="animate-spin" /> loading
+                  <Loader2 className="animate-spin" /> please waite...
                 </span>
               ) : (
                 <span>Login</span>
