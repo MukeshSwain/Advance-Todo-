@@ -33,13 +33,13 @@ function Login() {
         withCredentials: true,
         headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("token")}` // ✅ Send JWT token if needed
+       
       }
       });
 
       if (res.data.success) {
         console.log(res);
-        dispatch(setUser(res));
+        dispatch(setUser(res.data.user));
         navigate("/todo");
         toast.success(res.data.message);
       }
