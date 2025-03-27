@@ -22,7 +22,7 @@ app.use(express.json())
 
 
 app.use(cors({
-    origin: "https://advance-todo-27oihwb31-mukesh-swains-projects.vercel.app",
+    origin: "https://vercel.com/mukesh-swains-projects/advance-todo/A5rcB7zasJEWzeSMfrbicDDYMWZF",
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], 
     allowedHeaders: ["Content-Type", "Authorization"],
