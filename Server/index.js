@@ -23,7 +23,9 @@ app.use(express.json())
 
 app.use(cors({
     origin: "https://advance-todo-27oihwb31-mukesh-swains-projects.vercel.app",
-    credentials: true
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], 
+    allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 connectDB();
