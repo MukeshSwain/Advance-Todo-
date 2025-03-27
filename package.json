@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "build":"npm install --prefix Server && npm install --force --prefix Front-end && npm run build --prefix Front-end && npm run build --prefix Server",
-  "start":"npm run start --prefix Server"
+    "build": "npm install --prefix Server && npm install --force --prefix Front-end && npm run build --prefix Front-end && npm run build --prefix Server",
+    "start": "npm run start --prefix Server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4"
+  }
 }
