@@ -11,13 +11,10 @@ import taskRoutes from './routes/task.route.js'
 
 import "./util/nodeCron.js"
 
-
 const port = process.env.PORT || 3000;
-
 const app = express();
 
-const allowedOrigins = ["https://advance-todo-eight.vercel.app/"];
-
+const allowedOrigins = ["https://advance-todo-eight.vercel.app"]; // ✅ Removed trailing slash
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -27,44 +24,22 @@ app.use(cors({
       callback(new Error("CORS policy violation"));
     }
   },
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS","PATCH"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://advance-todo-eight.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(204);
-  }
-
-  next();
-});
-
-
-app.use(express.json())
+app.use(express.json());
 app.use(cookieParser());
 connectDB();
+
 app.get("/", (req, res) => {
-    res.json({message:"Server is running"})
-})
+    res.json({ message: "Server is running" });
+});
 
-app.use("/api/user", userRoutes)
-app.use("/api/task", taskRoutes)
-
+app.use("/api/user", userRoutes);
+app.use("/api/task", taskRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
-    
-})
-
-
-
-
-
-
-
+});
