@@ -1,2 +1,2 @@
-export const autEndPoint = "http://localhost:5001/api/user"
-export const taskEndPoint = "http://localhost:5001/api/task"
+export const autEndPoint = "advance-todo-back-75r9nq2c9-mukesh-swains-projects.vercel.app/api/user"
+export const taskEndPoint = "advance-todo-back-75r9nq2c9-mukesh-swains-projects.vercel.app/api/task"
