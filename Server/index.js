@@ -16,18 +16,38 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-app.use(cookieParser());
-
-app.use(express.json())
+const allowedOrigins = ["https://advance-todo-eight.vercel.app/"];
 
 
 app.use(cors({
-    origin: "https://advance-todo-eight.vercel.app/",
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], 
-    allowedHeaders: ["Content-Type", "Authorization"],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS policy violation"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS","PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://advance-todo-eight.vercel.app");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
+
+app.use(express.json())
+app.use(cookieParser());
 connectDB();
 app.get("/", (req, res) => {
     res.json({message:"Server is running"})
